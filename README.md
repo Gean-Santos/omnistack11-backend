@@ -1,4 +1,6 @@
 # Semana Omnistack 11 - Backend
 
-<h2>Before using, download the dependencies</h2>
- run **npm i** to install all dependences
+## Before using, download the dependencies:
+* run **npm i** to install all dependences
+### Look at the documentation of [Knex](http://knexjs.org/) to learn about Knexjs, a SQL query builder
+
