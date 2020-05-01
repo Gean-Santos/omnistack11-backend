@@ -1,5 +1,5 @@
 const express = require('express');
-const { celebrate, Segments, Joi } = require('celebrate');
+const { celebrate } = require('celebrate');
 
 const SessionController = require('./controllers/SessionController');
 const OngController = require('./controllers/OngController');
@@ -13,11 +13,11 @@ const ProfileValidator = require('./validators/ProfileValidator');
 
 const routes = express.Router();
 
-routes.post('/sessions', celebrate(SessionValidator()), SessionController.create);
+routes.post('/sessions', celebrate(SessionValidator().postSessionValidator), SessionController.create);
 
 routes.get('/ongs', OngController.index);
 
-routes.post('/ongs', celebrate(OngValidator()), OngController.create);
+routes.post('/ongs', celebrate(OngValidator().postOngValidator), OngController.create);
 
 routes.get('/incidents', celebrate(IncidentValidator().getIncidentValidator), IncidentController.index);
 
@@ -25,6 +25,6 @@ routes.post('/incidents', celebrate(IncidentValidator().postIncidentValidator), 
 
 routes.delete('/incidents/:id', celebrate(IncidentValidator().deleteIncidentValidator), IncidentController.delete);
 
-routes.get('/profile', celebrate(ProfileValidator()), ProfileController.index);
+routes.get('/profile', celebrate(ProfileValidator().getProfileValidator), ProfileController.index);
 
 module.exports = routes;

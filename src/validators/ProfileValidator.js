@@ -1,11 +1,12 @@
 const { Segments, Joi } = require('celebrate');
 
 function ProfileValidator() {
-  return {
+  const getProfileValidator = {
     [Segments.HEADERS]: Joi.object({
       authorization: Joi.string().required(),
     }).unknown(),
   }
+  return { getProfileValidator };
 }
 
 module.exports = ProfileValidator;

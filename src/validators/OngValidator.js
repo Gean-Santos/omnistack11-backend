@@ -1,7 +1,7 @@
 const { Segments, Joi } = require('celebrate');
 
 function OngValidator() {
-  return {
+  const postOngValidator = {
     [Segments.BODY]: Joi.object().keys({
       name: Joi.string().required(),
       email: Joi.string().required().email(),
@@ -10,6 +10,7 @@ function OngValidator() {
       uf: Joi.string().required().length(2),
     }),
   }
+  return { postOngValidator }
 }
 
 module.exports = OngValidator;
