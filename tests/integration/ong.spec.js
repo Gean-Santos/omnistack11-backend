@@ -22,8 +22,9 @@ describe('ONG', () => {
       city: "Santos",
       uf: "SP"
     });
-
+    
     expect(response.body).toHaveProperty('id');
     expect(response.body.id).toHaveLength(8);
   });
+  
 });
